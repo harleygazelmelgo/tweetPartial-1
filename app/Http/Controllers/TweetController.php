@@ -32,4 +32,11 @@ class TweetController extends Controller
         $tweets = DB::table('tweet')->get();
         return view("showTweets", [ "allTweets" => $tweets]);
     }
+
+    function editTweet(Request $request) {
+        DB::edit("UPDATE tweet SET author=1, content=1, id=1 ('$request->author','$request->content', '$request->id');");
+        $tweets = DB::table('tweet')->get();
+        return view("showTweets", ["allTweets" => $tweets]);
+    }
+
 }
